@@ -1,4 +1,4 @@
-**unmaintained**
+**forked from github.com/gravityblast/fresh which was forked from github.com/pilu/fresh**
 
 # Fresh 
 
@@ -13,7 +13,7 @@ It currently works with [Traffic](https://github.com/pilu/traffic), [Martini](ht
 
 ## Installation
 
-    go get github.com/pilu/fresh
+    go get github.com/navvyeducation/fresh
 
 ## Usage
 

@@ -56,13 +56,15 @@ func TestIsIgnoredFolder(t *testing.T) {
 	}{
 		{"assets/node_modules", true},
 		{"tmp/pid", true},
+		{"public/packs", true},
+		{"public/packs/test", true},
 		{"app/controllers", false},
 	}
 
 	for _, test := range tests {
 		actual := isIgnoredFolder(test.dir)
 		if actual != test.expected {
-			t.Errorf("Expected %v, got %v", test.expected, actual)
+			t.Errorf("Expected %v, got %v with %s", test.expected, actual, test.dir)
 		}
 	}
 }

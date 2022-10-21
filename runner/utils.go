@@ -24,13 +24,17 @@ func isTmpDir(path string) bool {
 }
 
 func isIgnoredFolder(path string) bool {
-	paths := strings.Split(path, "/")
-	if len(paths) <= 0 {
-		return false
-	}
-
 	for _, e := range strings.Split(settings["ignored"], ",") {
-		if strings.TrimSpace(e) == paths[0] {
+		trimmedIgnorePath := strings.TrimSpace(e)
+		trimmedPath := strings.TrimSpace(path)
+
+		if len(trimmedPath) <= 0 {
+			// path is empty
+			return false
+		}
+
+		// the path is a match or the subfolder of an ignored folder
+		if strings.HasPrefix(trimmedPath, trimmedIgnorePath) {
 			return true
 		}
 	}
